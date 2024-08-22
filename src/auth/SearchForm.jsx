@@ -28,7 +28,7 @@ function SearchForm({ searchFor }) {
   
   return (
     <div className="SearchForm mb-4">
-    <form className="SearchForm form-inline mb-4" onSubmit={e.preventDefault()}>
+    <form className="SearchForm form-inline mb-4" onSubmit={(e) => e.preventDefault()}>
      <input
       name="searchTerm"
       value={searchTerm}
