@@ -12,11 +12,6 @@ function SearchForm({ searchFor }) {
       searchFor(term.trim());
     }, 300);
 
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-  //   // console.debug("Submitting search with term:", searchTerm);
-  //   searchFor(searchTerm.trim());
-  // }
 
   function handleChange(e) {
     setSearchTerm(e.target.value);
@@ -33,7 +28,7 @@ function SearchForm({ searchFor }) {
   
   return (
     <div className="SearchForm mb-4">
-    <form className="SearchForm form-inline mb-4" onSubmit={handleSubmit}>
+    <form className="SearchForm form-inline mb-4" onSubmit={e.preventDefault()}>
      <input
       name="searchTerm"
       value={searchTerm}
