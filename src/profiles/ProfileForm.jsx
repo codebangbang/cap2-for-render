@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate} from "react-router-dom";
 import KfgApi from "../api/api";
 import UserContext from "../auth/UserContext";
 import Alert from "../common/Alert";
@@ -17,13 +18,7 @@ function ProfileForm() {
 
   const [saveConfirmed, setSaveConfirmed] = useState(false);
 
-  // console.debug(
-  //   "ProfileForm",
-  //   "currentUser=", currentUser,
-  //   "formData=", formData,
-  //   "formErrors=", formErrors,
-  //   "saveConfirmed=", saveConfirmed,
-  // );
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -49,8 +44,11 @@ function ProfileForm() {
   setFormData(f => ({ ...f, password: "" }));
   setFormErrors([]);
   setSaveConfirmed(true);
-
   setCurrentUser(updatedUser);
+
+  setTimeout(() => {
+    navigate("/");
+  }, 1000);
 }
 
 function handleChange(e) {
